@@ -7,7 +7,11 @@
 <body class="bg-light">
 <div class="container mt-4">
     <h1 class="mb-4">My Expenses</h1>
-    <a href="{% url 'logout' %}" class="btn btn-outline-dark mb-3">Logout</a>
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-dark mb-3">Logout</button>
+</form>
+
     <a href="{% url 'export_csv' %}" class="btn btn-outline-success mb-3">Export as CSV</a>
     <a href="{% url 'add_expense' %}" class="btn btn-primary mb-3">Add Expense</a>
     <a href="{% url 'dashboard' %}" class="btn btn-secondary mb-3">Dashboard</a>
